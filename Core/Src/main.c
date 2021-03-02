@@ -107,9 +107,9 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 		BMU();
-		if (HAL_GetTick() - Timestamp >= 250) {
+		if (HAL_GetTick() - Timestamp >= 250) { //ปรับให้ได้ค่าที่เหมาะสมต่อการกด
 
-			if (BMS == 0b1) {
+			if (BMS == 0b1) { //เช็คว่าตอนนี้กำลังกดปุ่มใดอยู่ และเป็นการกำหนดว่า ให้ปุ่มนี้แสดงค่าเลขอะไรออกมา หลังจากนั้นทำการ +1 ให้ค่าของ data เพื่อเพิ่มค่าของตำแหน่งข้อมูลไปเรื่อยๆ แล้วจึงทำการเซ็ทค่า Timestamp
 				Data[data] = 7;data += 1;Timestamp = HAL_GetTick();
 			}
 			else if (BMS == 0b10) {
@@ -140,7 +140,7 @@ int main(void)
 				Data[data] = 0;data += 1;Timestamp = HAL_GetTick();
 			}
 
-			else if (BMS == 0b1000) {
+			else if (BMS == 0b1000) { //ถ้ามีการกดปุ่ม clear จะทำการรีเซ็ทข้อมูลทุกตำแหน่งให้เป็น 0 และไฟจะดับในกรณีที่ก่อนหน้านี้ไฟติด
 				int i ;
 				for (i = 0; i < 12; i++) {
 				Data[i] = 0;
@@ -149,7 +149,7 @@ int main(void)
 				Timestamp = HAL_GetTick();
 			}
 
-			else if (BMS == 0b1000000000000000) {
+			else if (BMS == 0b1000000000000000) { //ถ้ากดปุ่ม ok แล้วใส่รหัสถูกตามที่กำหนด ไฟจะติดสว่างขึ้น
 				if (Data[0] == 6 && Data[1] == 2 && Data[2] == 3 && Data[3] == 4 && Data[4] == 0 && Data[5] == 5
 					&& Data[6] == 0 && Data[7] == 0 && Data[8] == 0 && Data[9] == 5 && Data[10] == 8)
 				{
