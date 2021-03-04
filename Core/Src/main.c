@@ -142,7 +142,7 @@ int main(void)
 
 			else if (BMS == 0b1000) { //ถ้ามีการกดปุ่ม clear จะทำการรีเซ็ทข้อมูลทุกตำแหน่งให้เป็น 0 และไฟจะดับในกรณีที่ก่อนหน้านี้ไฟติด
 				int i ;
-				for (i = 0; i < 12; i++) {
+				for (i = 0; i < 12; ++i) {
 				Data[i] = 0;
 				}
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
