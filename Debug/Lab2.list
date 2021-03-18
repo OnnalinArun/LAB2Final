@@ -1,5 +1,5 @@
 
-Lab2.elf:     file format elf32-littlearm
+LAB2.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -627,7 +627,7 @@ int main(void)
  80006ae:	2b08      	cmp	r3, #8
  80006b0:	d118      	bne.n	80006e4 <main+0x20c>
 				int i ;
-				for (i = 0; i < 12; i++) {
+				for (i = 0; i < 12; ++i) {
  80006b2:	2300      	movs	r3, #0
  80006b4:	607b      	str	r3, [r7, #4]
  80006b6:	e007      	b.n	80006c8 <main+0x1f0>
@@ -636,7 +636,7 @@ int main(void)
  80006ba:	687b      	ldr	r3, [r7, #4]
  80006bc:	2100      	movs	r1, #0
  80006be:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
-				for (i = 0; i < 12; i++) {
+				for (i = 0; i < 12; ++i) {
  80006c2:	687b      	ldr	r3, [r7, #4]
  80006c4:	3301      	adds	r3, #1
  80006c6:	607b      	str	r3, [r7, #4]
